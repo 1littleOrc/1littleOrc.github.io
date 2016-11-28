@@ -1,25 +1,22 @@
-.main {
-	height: 100vh;
+header {
 	background-color: #120A8F;
-	color: #fff;
-	padding-top: 40vh;
-}
-
-.items {
-	margin-top: 5%;
-}
-
-.img_item {
-	padding: 5%;
-	margin-top: 5%;
-}
-
-.box {
 	height: 100px;
-	border: 2px solid #000;
+	width: 100%;
+	position: fixed;
+	top: 0px;
+	left: 0px;
 }
- 
-.box_item {
-	background-color: green;
-	height: 50px;
+.lorem_text {
+	margin-top: 100px;
+}
+.box {
+	padding: 15px 20px 10px 20px;
+	width: 400px;
+	height: 400px;
+	position: relative;
+	left: 50%;
+	margin-left: -200px;
+	margin-bottom: 50px;
+	background-color: #120a8f;
+	color: #fff;
 }
