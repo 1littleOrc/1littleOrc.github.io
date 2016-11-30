@@ -1,0 +1,145 @@
+/* fonts */
+.open-semi {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;}
+.open-reg {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;}
+
+/* base config */
+@base-black: #706b73;
+@black: #211a18;
+@base-red: #fc6f4e;
+@white: #ffffff;
+@bg-grey: #f5f5f5;
+
+/* custom functions */
+.rounded(@radius) {
+    border-radius: @radius; 
+}
+.transform(@transform) {
+	transform: translateY(@transform);
+}
+
+/* general settings */
+body {
+	.open-reg;
+}
+input, button, textarea {
+	outline: none;
+	border: none;
+}
+/* basic screen */
+header {
+	background-color: #f5f5f5;
+	min-height: 700px;
+	height: 100vh;
+}
+.top_line {
+	margin-top: 25px;
+	&-logo {
+		&-image {
+			.open-semi;
+			border: 3px solid @base-black;
+			height: 55px;
+			line-height: 49px;
+			width: 150px;
+			font-size: 36px;
+			text-align: center;
+			color: @base-black;
+			span {
+				color: lighten(@base-red, 5%);
+			}
+		}
+	}
+	&-menu {
+		&-burger {
+			float: right;
+			display: inline-block;
+			height: 49px;
+				&-button {
+					width: 30px;
+					height: 4px;
+					background-color: @base-black;
+					.rounded(5px);
+					top: 50%;
+					right: 0%;
+					position: relative;
+				}
+					&:before, &:after {
+						.rounded(5px);
+						content: '';
+						width: 30px;
+						height: 4px;
+						background-color: @base-black;
+						display: block;
+						position: relative;
+						
+					}
+					&:before {
+						.transform(20px);
+					}
+					&:after {
+						.transform(30px);
+					}
+		}
+	}
+}
+.first-screen {
+	margin-top: 5%;
+	text-align: center;
+	h1 {
+		.open-semi;
+		color: @base-black;
+		span {
+			color: @base-red;
+		}
+	}
+	p {
+		padding: 30px;
+		font-size: 16px;
+	}
+}
+.promo-form {
+	&-bg {
+		background-color: @white;
+		padding: 35px;
+		margin-top: 5%;
+		.rounded(5px);
+		box-shadow: 0px 0px 57px 0px rgba(20, 20, 21, 0.2);
+		div {
+			font-size: 20px;
+			color: @black;
+			text-align: center;
+			span {
+				color: @base-red;
+			}
+		}
+		input, textarea {
+			border-bottom: 1px solid @base-black;
+			font-size: 15px;
+			padding-bottom: 5px;
+			color: @base-black;
+			display: block;
+			margin: 0 auto;
+			margin-top: 30px;
+			width: 100%;
+		}
+		button {
+			border-radius: 50px;
+			background-color: @base-red;
+			color: @white;
+			padding: 15px 40px;
+			font-size: 16px;
+			margin: 0 auto;
+			display: block;
+			margin-top: 30px;
+			span:after {
+				content: ' \2192';
+				position: relative;
+				left: 10px;
+				top: 0;
+			}
+		}
+	}
+}
