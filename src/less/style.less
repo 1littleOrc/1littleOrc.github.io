@@ -42,6 +42,22 @@ input, button, textarea {
 	outline: none;
 	border: none;
 }
+
+/* service classes*/
+.service-header {
+	font-size: 50px;
+	.open-semi;
+	margin: 140px auto 100px;
+	span {
+		color: @base-red;
+	}
+	&-p{
+		.open-reg;
+		font-size: 16px;
+		color: @lite-black;
+	}
+}
+
 /* basic screen */
 header {
 	min-height: 700px;
@@ -152,34 +168,24 @@ header {
 				display: block;
 				margin-top: 30px;
 			}
+			button:hover {	
+				box-shadow: 0px 11px 20px 0px rgba(20, 20, 21, 0.08);
+			}
 		}
 	}
 }
 .work {
 	padding-bottom: 150px;
 	&-process{
-		&-hd {
-			&-text {
-				font-size: 50px;
-				.open-semi;
-				margin: 140px auto 100px;
-				span {
-					color: @base-red;
-				}
-				&-p{
-					.open-reg;
-					font-size: 16px;
-					color: @lite-black;
-				}
-			}
-		}
 		&-body {
 			.tomi, .koimona, .koire, .lara {
 				width: 100%;
-				
 				display: block;
 				color: @white;
 				padding: 50px 35px;
+				&:hover {
+					box-shadow: 0px 0px 35px 0px rgba(20, 20, 21, 0.21);
+				}
 			}
 			.tomi {
 				background-color: @bg-tomi;
@@ -216,6 +222,9 @@ header {
 				width: 80%;
 				left: 10%;
 				bottom: -10%;
+				&:hover {
+					box-shadow: 0px 6px 14px 0px rgba(20, 20, 21, 0.09);
+				}
 			}
 			.btn_plus {
 				width: 16px;
@@ -237,3 +246,13 @@ header {
 		}	
 	}
 }
+.featured {
+	background-color: @bg-grey;
+	padding-bottom: 150px;
+	.hovereffect {
+		margin-top: 30px;
+	}
+}
+
+
+
