@@ -18,6 +18,7 @@
 @item-white: #fbfbfb;
 @star: #ffef3b;
 @grey: #adadad;
+@bg-footer: #f7f7f7;
 
 /* color work process*/
 @bg-tomi: #4eb2f7;
@@ -442,5 +443,31 @@ header {
 	.slick-dots {
 		bottom: -50px;
 	}
+}
+
+footer {
+	padding: 100px 0;
+	background-color: @bg-footer;
+
+	.footer-btn {
+		margin: 0 auto;
+		padding: 15px 50px;
+		display: block;
+		position: relative;
+		left: 0;
+		border-radius: 50px;
+		border: 1px solid lighten(@base-black, 45%);
+		background-color: @white;
+		color: @base-black;
+		font-size: 16px;
+		outline: none;
+		&:hover {
+			box-shadow: 0px 6px 14px 0px rgba(20, 20, 21, 0.09);
+		}
+		
+	}
+	.footer-btn:active, .footer-btn :focus {
+			outline: none;
+		}
 }
 
