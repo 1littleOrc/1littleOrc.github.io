@@ -7,7 +7,6 @@
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 }
-
 /* base config */
 @base-black: #706b73;
 @black: #211a18;
@@ -49,6 +48,9 @@ input, button, textarea {
 	border: none;
 }
 
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+	outline: none;
+}
 /* service classes*/
 .service-header {
 	font-size: 50px;
@@ -282,7 +284,6 @@ header {
 			box-shadow: 0px 0px 36px 0px rgba(20, 20, 21, 0.2);
 		} 
 	}
-
 	.provide-tab {
 		&-content {
 			h4, p {
@@ -466,8 +467,54 @@ footer {
 		}
 		
 	}
-	.footer-btn:active, .footer-btn :focus {
-			outline: none;
+	
+}
+
+.modal {
+	.close {
+		margin-right:10px;
+		margin-top: 10px;
+	}
+	h4.modal-header {
+		.open-semi;
+		border: none;
+		text-align: center;
+		padding: 0;
+		span {
+			color: @base-red;
 		}
+		&:after {
+			width: 60px;
+		    height: 2px;
+		    background-color: @base-red;
+		    display: block;
+		    margin: 10px auto;
+		    content: '';
+		}
+	}
+	input, textarea {
+		border-bottom: 1px solid @base-black;
+		font-size: 15px;
+		padding-bottom: 5px;
+		color: @base-black;
+		display: block;
+		margin: 0 auto;
+		margin-top: 30px;
+		width: 100%;
+	}
+	button[type=submit] {
+		border-radius: 50px;
+		background-color: @base-red;
+		color: @white;
+		padding: 15px 40px;
+		font-size: 16px;
+		margin: 0 auto;
+		display: block;
+		margin-top: 30px;
+	}
+	button:hover {	
+		box-shadow: 0px 11px 20px 0px rgba(20, 20, 21, 0.08);
+	}
+
 }
 

@@ -43,7 +43,7 @@ var config = {
     tunnel: true,
     host: 'localhost',
     port: 9000,
-    logPrefix: "Frontend_Devil"
+    logPrefix: "1littleOrc"
 };
 gulp.task('html:build', function () {
     gulp.src(path.src.html) //Выберем файлы по нужному пути
