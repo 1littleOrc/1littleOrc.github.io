@@ -43,8 +43,8 @@ var config = {
     },
     tunnel: true,
     host: 'localhost',
-    port: 9000,
-     open: true,
+    port: 8080,
+    open: true,
     notify: false,
     logPrefix: "1littleOrc"
 };
@@ -117,10 +117,15 @@ gulp.task('build', [
     'image:build'
 ]);
 gulp.task('php', function(){
-  connect.server({ base: './build', keepalive:true, hostname: 'localhost', port:8080, open: false});
+  connect.server({ base: './build', keepalive:true, port:8010});
 });
 gulp.task('webserver', function () {
-    browserSync(config);
+    browserSync({
+        proxy: '127.0.0.1:8010',
+        port: 8080,
+        open: true,
+        notify: false
+    });
 });
 
 gulp.task('clean', function (cb) {
