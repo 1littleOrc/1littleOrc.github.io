@@ -47,11 +47,11 @@
     
     <div class="row promo-form">
       <div class="col-xs-10 col-xs-offset-1 col-md-offset-3 col-md-6 col-lg-offset-0 col-lg-4 promo-form-bg">
-        <form action="#">
+        <form action="mail.php" method="POST">
           <div><span>Send</span> A Message</div>
-          <input type="text" placeholder="Your Name">
-          <input type="email" placeholder="Your Email" required="">
-          <textarea rows="3" placeholder="Your Message"></textarea>
+          <input type="text" name="name" placeholder="Your Name">
+          <input type="email" name="email" placeholder="Your Email" required="">
+          <textarea rows="3" name="message" ="Your Message"></textarea>
           <button type="submit"><span>Send Message <i class="fa fa-long-arrow-right"></i></span></button>
         </form>
       </div>
