@@ -47,7 +47,7 @@
     
     <div class="row promo-form">
       <div class="col-xs-10 col-xs-offset-1 col-md-offset-3 col-md-6 col-lg-offset-0 col-lg-4 promo-form-bg">
-        <form action="mail.php" method="POST">
+        <form action="#" class="ajaxform">
           <div><span>Send</span> A Message</div>
           <input type="text" name="name" placeholder="Your Name">
           <input type="email" name="email" placeholder="Your Email" required="">
@@ -492,14 +492,16 @@
         <div class="row">
           <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 
           col-md-offset-2 col-lg-12 col-lg-offset-0">
-            <h4 class="modal-header"><span>Get</span> Call</h4>
-            <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-              <input type="text" placeholder="Your Name">
-              <input type="email" placeholder="Your Email" required="">
-              <textarea rows="3" placeholder="Your Message"></textarea>
-              <button type="submit"><span>Send Message <i class="fa fa-long-arrow-right"></i></span></button>
-              <br><br>
-            </div>
+          <form  class="ajaxform">
+              <h4 class="modal-header"><span>Get</span> Call</h4>
+              <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email" required="">
+                <textarea rows="3" placeholder="Your Message"></textarea>
+                <button type="submit"><span>Send Message <i class="fa fa-long-arrow-right"></i></span></button>
+                <br><br>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -521,10 +523,38 @@
               <div class="row">
                 <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 
                 col-md-offset-2 col-lg-12 col-lg-offset-0">
-                  <h4 class="modal-header"><span>Take</span> Prices</h4>
+                  <form  class="ajaxform">
+                    <h4 class="modal-header"><span>Take</span> Prices</h4>
+                    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                      <input type="email" placeholder="Your Email" required="">
+                      <button type="submit"><span>Get Prices <i class="fa fa-download" aria-hidden="true"></i></span></button>
+                      <br><br>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="thanks-modal" tabindex="-1" role="dialog" aria-labelledby="thanks-modalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            <div class="modal-content">
+              <div class="row">
+                <div class="col-xs-offset-10 col-xs-2">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 
+                col-md-offset-2 col-lg-12 col-lg-offset-0">
+                  <h4 class="modal-header"><span>Thank</span> You</h4>
                   <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-                    <input type="email" placeholder="Your Email" required="">
-                    <button type="submit"><span>Get Prices <i class="fa fa-download" aria-hidden="true"></i></span></button>
+                    <p class="text-center">Мы вам перезвоним</p>
                     <br><br>
                   </div>
                 </div>
@@ -587,5 +617,24 @@
   <script>
     new WOW().init();
   </script>
+  <script>
+    $(document).ready(function() {
+      $(".ajaxform").submit(function() {
+        $.ajax({
+          type: "POST",
+          url: "mail.php",
+          data: $(this).serialize()
+        }).done(function() {
+          $(this).find("input").val("");
+          //alert("Спасибо за заявку! Скоро мы с вами свяжемся.");
+          $("#thanks-modal").modal("show");
+          $(".ajaxform").trigger("reset");
+        });
+        return false;
+      });
+      
+    });
+  </script>
+
   </body>
 </html>

@@ -2,6 +2,7 @@
 $name = $_POST['name'];
 $email = $_POST['email'];
 $message = $_POST['message'];
+$hidden = $_POST['where'];
 
 require_once('phpmailer/PHPMailerAutoload.php');
 $mail = new PHPMailer;
