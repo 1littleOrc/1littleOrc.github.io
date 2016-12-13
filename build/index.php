@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>lesson 19</title>
+    <title>lesson 21</title>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <!-- Bootstrap -->
@@ -50,9 +50,9 @@
         <form action="#" class="ajaxform">
           <div><span>Send</span> A Message</div>
           <input type="text" name="name" placeholder="Your Name">
-          <input type="email" name="email" placeholder="Your Email" required="">
-          <textarea rows="3" name="message" ="Your Message"></textarea>
-          <button type="submit"><span>Send Message <i class="fa fa-long-arrow-right"></i></span></button>
+          <input type="tel" name="phone" class="form-phone" placeholder="Your Phone" required>
+          <textarea rows="3" name="message" placeholder="Your Message"></textarea>
+          <button type="submit" class='btn-submit'><span>Send Message <i class="fa fa-long-arrow-right"></i></span></button>
         </form>
       </div>
     </div>
@@ -496,9 +496,9 @@
               <h4 class="modal-header"><span>Get</span> Call</h4>
               <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
                 <input type="text" placeholder="Your Name">
-                <input type="email" placeholder="Your Email" required="">
+                <input type="tel" name="phone" class="form-phone" placeholder="Your Phone" required>
                 <textarea rows="3" placeholder="Your Message"></textarea>
-                <button type="submit"><span>Send Message <i class="fa fa-long-arrow-right"></i></span></button>
+                <button type="submit" class='btn-submit'><span>Send Message <i class="fa fa-long-arrow-right"></i></span></button>
                 <br><br>
               </div>
             </form>
@@ -565,7 +565,16 @@
     </div>
 </div>
 
-
+  <div class="overlay-nav">
+    <span class="close-nav">&times;</span>
+    <ul>
+      <li><a href="">Главная</a></li>
+      <li><a href="">Портфолио</a></li>
+      <li><a href="">Карта</a></li>
+      <li><a href="">Цены</a></li>
+      <li><a href="">Контакты</a></li>
+    </ul>
+  </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -635,6 +644,38 @@
       
     });
   </script>
-
+  <script>
+    $(document).ready(function() {
+      var $nav = $('.top_line-menu-burger');
+      $nav.click(function() {
+        $('.overlay-nav').show(250);
+      })
+      $('.close-nav').click(function() {
+        $('.overlay-nav').hide(250);
+      })
+    })
+  </script>
+  <script>
+    jQuery(function($){
+       $(".form-phone").mask("+7 (999) 999-9999");
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      var i = 0;
+        $('.btn-submit').click(function() {
+          if($('.form-phone').val() !== ''){
+            $("p.after-label").remove();
+            $('.ajaxform').reset();
+            $('.btn-submit').submit();
+          } else {
+            if(i<1){
+              $('.form-phone').after("<p style='color:#fc6f4e;' class='after-label'>Заполните поле телефон</p>");
+              i++;
+            }
+          }
+        })
+    })
+  </script>
   </body>
 </html>
