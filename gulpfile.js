@@ -1,5 +1,4 @@
 var gulp = require('gulp'),
-    connect = require('gulp-connect-php'),
     watch = require('gulp-watch'), 
     prefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
@@ -22,14 +21,14 @@ var path = {
         fonts: 'build/fonts/'
     },
     src: { //Пути откуда брать исходники
-        html: 'src/**/*.php', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
+        html: 'src/*.html', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
         js: 'src/js/main.js',//В стилях и скриптах нам понадобятся только main файлы
         style: 'src/less/main.less',
         img: 'src/img/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
         fonts: 'src/fonts/**/*.*'
     },
     watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
-        html: 'src/**/*.php',
+        html: 'src/**/*.html',
         js: 'src/js/**/*.js',
         style: 'src/less/**/*.less',
         img: 'src/img/**/*.*',
@@ -43,9 +42,7 @@ var config = {
     },
     tunnel: true,
     host: 'localhost',
-    port: 8080,
-    open: true,
-    notify: false,
+    port: 9000,
     logPrefix: "1littleOrc"
 };
 gulp.task('html:build', function () {
@@ -116,23 +113,16 @@ gulp.task('build', [
     'fonts:build',
     'image:build'
 ]);
-gulp.task('php', function(){
-  connect.server({ base: './build', keepalive:true, port:8010});
-});
+
 gulp.task('webserver', function () {
-    browserSync({
-        proxy: '127.0.0.1:8010',
-        port: 8080,
-        open: true,
-        notify: false
-    });
+    browserSync(config);
 });
 
 gulp.task('clean', function (cb) {
     rimraf(path.clean, cb);
 });
 
-gulp.task('default', ['build', 'webserver', 'php', 'watch']);
+gulp.task('default', ['build', 'webserver', 'watch']);
 
 gulp.task('hello', function() {
 console.log('Hello');

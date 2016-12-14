@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>lesson 21</title>
+    <title>lesson 22</title>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <!-- Bootstrap -->
@@ -22,7 +22,16 @@
     <![endif]-->
   </head>
   <body>
-
+  <div class="video-container">
+    <div class="filter"></div>
+    <video autoplay loop class="fillWidth">
+        <source src="img/video/Hello-World.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+        <source src="img/video/Hello-World.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+    </video>
+    <div class="poster hidden">
+        <img src="img/video/Hello-World.jpg" alt="'Your browser does not support the img tag. I suggest you upgrade your browser. Sad, but true. :'-(">
+    </div>
+  </div>
   <header>
     <div class="container">
     <!-- top line -->
